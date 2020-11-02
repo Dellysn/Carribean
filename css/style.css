@@ -17794,7 +17794,7 @@ li.ui-timepicker-selected .ui-timepicker-duration {
 .datepicker table tr td.today:active,
 .datepicker table tr td.today:hover.active,
 .datepicker table tr td.today:hover:active {
-  background-color: #fbf069\9;
+  background-color: #fbf069;
 }
 .datepicker table tr td.active,
 .datepicker table tr td.active.disabled,
@@ -17833,7 +17833,7 @@ li.ui-timepicker-selected .ui-timepicker-duration {
 .datepicker table tr td.active:active,
 .datepicker table tr td.active:hover.active,
 .datepicker table tr td.active:hover:active {
-  background-color: #fba83b\9;
+  background-color: #fba83b;
 }
 .datepicker table tr td span {
   display: block;
@@ -17893,7 +17893,7 @@ li.ui-timepicker-selected .ui-timepicker-duration {
 .datepicker table tr td span.active:active,
 .datepicker table tr td span.active:hover.active,
 .datepicker table tr td span.active:hover:active {
-  background-color: #fba83b\9;
+  background-color: #fba83b;
 }
 .datepicker table tr td span.old {
   color: #999999;
@@ -23590,7 +23590,7 @@ h6 {
   transition: 0s all ease;
 }
 .grid .grid-item img {
-  width: 100%;
+ max-width: 100%;
 }
 .grid:after {
   content: "";
