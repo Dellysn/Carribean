@@ -23498,7 +23498,7 @@ h6 {
 }
 .templateux-footer,
 .templateux-section {
-  padding: 7em 0;
+  padding: 2em 0;
   clear: both;
 }
 .lead {
@@ -23590,7 +23590,7 @@ h6 {
   transition: 0s all ease;
 }
 .grid .grid-item img {
- max-width: 100%;
+  max-width: 100%;
 }
 .grid:after {
   content: "";
