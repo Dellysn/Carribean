@@ -25,6 +25,9 @@
         position: sticky !important;
         top: 166px;
       }
+      .checkout-btn {
+        display: none;
+      }
       .cart-header {
         text-align: center;
         border-bottom: 2px #000 solid;
@@ -1302,7 +1305,9 @@
                     <tr>
                       <td></td>
                       <td>
-                        <button class="btn btn-success mt-1">continue</button>
+                        <button class="btn btn-success mt-1 checkout-btn">
+                          continue
+                        </button>
                       </td>
                       <td></td>
                     </tr>
@@ -1436,6 +1441,8 @@
       integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
       crossorigin="anonymous"
     ></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
     <script>
       $(function () {
         $(".porduct-lists .card").matchHeight();
@@ -1544,6 +1551,29 @@
         const items = e.target.parentElement.parentElement;
 
         getItemInfo(items);
+        // const Toast = Swal.mixin({
+        //   toast: true,
+        //   position: "top-end",
+        //   showConfirmButton: false,
+        //   timer: 3000,
+        //   timerProgressBar: true,
+        //   didOpen: (toast) => {
+        //     toast.addEventListener("mouseenter", Swal.stopTimer);
+        //     toast.addEventListener("mouseleave", Swal.resumeTimer);
+        //   },
+        // });
+
+        // Toast.fire({
+        //   icon: "success",
+        //   title: "Item added to cart successfully",
+        // });
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Item added to cart successfully",
+          showConfirmButton: false,
+          timer: 1200,
+        });
       }
 
       function getItemInfo(items) {
@@ -1599,13 +1629,15 @@
           showCartBtn.innerText =
             "(" + "$" + Math.round((total * 100) / 100) + ")";
         });
+                  document.querySelector(".checkout-btn").style.display = "block";
+
       }
       function totalToZero() {
         const cartRow = document.querySelectorAll(".cart-row");
         const displayTotal = document.querySelector("#total");
         if (cartRow.length < 1) {
           displayTotal.innerText = "$0.00";
-        }
+        } 
       }
 
       function handleQuantityInput(e) {
@@ -1640,6 +1672,14 @@
           $(".cart").css("display", "block");
         }
         // });
+        $(".checkout-btn").click(function () {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Something went wrong!",
+            footer: "This feature is not available yet",
+          });
+        });
       });
     </script>
   </body>
