@@ -45,11 +45,11 @@
         }
         #toggle-cart {
           position: fixed;
-          right: 0;
-          bottom: 2%;
+          right: 30%;
+          bottom: 0;
           padding: 0.4rem;
           background: #fd7e14;
-          font-size: 10px;
+          font-size: 12px;
           color: #fff;
           display: block;
           z-index: 99;
@@ -1297,7 +1297,14 @@
                     <tr>
                       <td>Total</td>
                       <td></td>
-                      <td><span id="total"></span></td>
+                      <td><span id="total">$0.00</span></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>
+                        <button class="btn btn-success mt-1">continue</button>
+                      </td>
+                      <td></td>
                     </tr>
                   </tfoot>
                 </table>
@@ -1311,7 +1318,9 @@
       <!-- .templateux-section -->
 
       <footer class="templateux-footer">
-        <div id="toggle-cart">hide/show cart</div>
+        <button id="toggle-cart" class="btn">
+          hide/show cart <span id="dol"></span>
+        </button>
         <div class="container">
           <div class="row mb-5">
             <div class="col-md-4 pr-md-5 mb-4">
@@ -1418,8 +1427,15 @@
     <!-- .js-animsition -->
 
     <script src="js/scripts-all.js"></script>
+
     <script src="js/main.js"></script>
     <script src="js/matchHeight.js" type="text/javascript"></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+      crossorigin="anonymous"
+    ></script>
     <script>
       $(function () {
         $(".porduct-lists .card").matchHeight();
@@ -1524,7 +1540,6 @@
 
       function addToCart(e) {
         if (e.target.id !== "add-to-cart") return;
-
         // traversing the DOM to get the button parent element (the card which contains the food infos)
         const items = e.target.parentElement.parentElement;
 
@@ -1580,14 +1595,16 @@
           const displayTotal = document.querySelector("#total");
           total += quantity * price;
           displayTotal.innerText = "$" + Math.round((total * 100) / 100);
+          const showCartBtn = document.querySelector("#dol");
+          showCartBtn.innerText =
+            "(" + "$" + Math.round((total * 100) / 100) + ")";
         });
       }
       function totalToZero() {
         const cartRow = document.querySelectorAll(".cart-row");
-        console.log(cartRow.length);
         const displayTotal = document.querySelector("#total");
         if (cartRow.length < 1) {
-          displayTotal.innerText = "";
+          displayTotal.innerText = "$0.00";
         }
       }
 
@@ -1604,25 +1621,21 @@
       $(document).ready(function () {
         // $(window).resize(function () {
         if ($(window).width() < 960) {
-          document.addEventListener(
-            "click",
-            function (e) {
-              if (e.target.id === "toggle-cart") {
-                // $("#toggle-cart").css();
-                $(".cart").fadeToggle(500);
-                $(".cart").css({
-                  width: " 68%",
-                  left: "16%",
-                  height: "400px",
-                  top: "43%",
-                  "box-shadow": "black 0px -1px 164px -91px ",
-                });
-              } else {
-                return false;
-              }
-            },
-            false
-          );
+          document.addEventListener("click", function (e) {
+            if (e.target.id === "toggle-cart") {
+              // $("#toggle-cart").css();
+              $(".cart").slideToggle(200);
+              $(".cart").css({
+                width: " 78%",
+                left: "10%",
+                height: "400px",
+                top: "43%",
+                "box-shadow": "black 0px -1px 164px -91px ",
+              });
+            } else {
+              return false;
+            }
+          });
         } else {
           $(".cart").css("display", "block");
         }
