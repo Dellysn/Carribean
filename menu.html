@@ -19,9 +19,8 @@
       @import url("https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap");
       .cart {
         font-family: "Noto Sans";
-        padding: 1rem;
-        border: #000 solid 2px;
-        height: 500px;
+        border: #000 solid 1px;
+        height: auto;
         margin-top: 30px;
         position: sticky !important;
         top: 166px;
@@ -30,6 +29,9 @@
         text-align: center;
         border-bottom: 2px #000 solid;
         color: #fff !important;
+      }
+      #toggle-cart {
+        display: none;
       }
       @media (max-width: 990px) {
         .cart {
@@ -40,6 +42,24 @@
           background: #fff;
           z-index: 99;
           display: none;
+        }
+        #toggle-cart {
+          position: fixed;
+          right: 0;
+          bottom: 2%;
+          padding: 0.4rem;
+          background: #fd7e14;
+          font-size: 10px;
+          color: #fff;
+          display: block;
+          z-index: 99;
+          cursor: pointer;
+        }
+        #toggle-cart:hover {
+          background-color: #000;
+        }
+        .navs {
+          font-size: 0.6rem !important;
         }
       }
       .nav-items {
@@ -106,7 +126,7 @@
       }
       .navs:hover {
         color: #fba83b;
-        /* background: rgb(255, 95, 20, 0.8); */
+
         transition: all 0.5s ease;
       }
       .bottom-slider {
@@ -150,8 +170,7 @@
         overflow: hidden;
         /* background: orangered; */
       }
-      .product-lists .card .row {
-      }
+
       .product-lists .card .card-body {
         padding: 0.6rem 0 0 0.8rem;
       }
@@ -160,7 +179,6 @@
         margin: 0;
       }
       .product-lists .card .card-footer_ .card-text {
-        /* padding: 0.6rem 0 0 0.8rem; */
         margin: 0;
         background-color: transparent;
       }
@@ -174,6 +192,9 @@
       .product-lists .card .card-img {
         height: 100%;
         border-radius: 0;
+      }
+      .menu-price {
+        font-size: 20px;
       }
     </style>
   </head>
@@ -297,7 +318,7 @@
                     Sweet Fire Lunch & Dinner Entrées
                   </h3>
                   <div class="row product-lists">
-                    <div class="col-lg-6 col-sm-6">
+                    <div class="col-lg-6 col-sm-6 xs-6 col-m6">
                       <div class="card mb-3">
                         <div class="row no-gutters">
                           <div class="col-md-4">
@@ -323,6 +344,7 @@
                                 </p>
                                 <p>
                                   <button
+                                    id="add-to-cart"
                                     class="btn btn-success add-to-cart-btn"
                                   >
                                     +
@@ -334,7 +356,7 @@
                         </div>
                       </div>
                     </div>
-                    <div class="col-lg-6 col-sm-6">
+                    <div class="col-lg-6 col-sm-6 xs-6 col-md-6">
                       <div class="card mb-3">
                         <div class="row no-gutters">
                           <div class="col-md-4">
@@ -360,6 +382,7 @@
                                 </p>
                                 <p>
                                   <button
+                                    id="add-to-cart"
                                     class="btn btn-success add-to-cart-btn"
                                   >
                                     +
@@ -399,6 +422,7 @@
                                 </p>
                                 <p>
                                   <button
+                                    id="add-to-cart"
                                     class="btn btn-success add-to-cart-btn"
                                   >
                                     +
@@ -435,6 +459,7 @@
                                 </p>
                                 <p>
                                   <button
+                                    id="add-to-cart"
                                     class="btn btn-success add-to-cart-btn"
                                   >
                                     +
@@ -472,6 +497,7 @@
                                 </p>
                                 <p>
                                   <button
+                                    id="add-to-cart"
                                     class="btn btn-success add-to-cart-btn"
                                   >
                                     +
@@ -510,6 +536,7 @@
                                 </p>
                                 <p>
                                   <button
+                                    id="add-to-cart"
                                     class="btn btn-success add-to-cart-btn"
                                   >
                                     +
@@ -548,6 +575,7 @@
                                 </p>
                                 <p>
                                   <button
+                                    id="add-to-cart"
                                     class="btn btn-success add-to-cart-btn"
                                   >
                                     +
@@ -585,6 +613,7 @@
                                 </p>
                                 <p>
                                   <button
+                                    id="add-to-cart"
                                     class="btn btn-success add-to-cart-btn"
                                   >
                                     +
@@ -621,6 +650,7 @@
                                 </p>
                                 <p>
                                   <button
+                                    id="add-to-cart"
                                     class="btn btn-success add-to-cart-btn"
                                   >
                                     +
@@ -664,6 +694,7 @@
                                 </p>
                                 <p>
                                   <button
+                                    id="add-to-cart"
                                     class="btn btn-success add-to-cart-btn"
                                   >
                                     +
@@ -700,6 +731,7 @@
                                 </p>
                                 <p>
                                   <button
+                                    id="add-to-cart"
                                     class="btn btn-success add-to-cart-btn"
                                   >
                                     +
@@ -736,6 +768,7 @@
                                 </p>
                                 <p>
                                   <button
+                                    id="add-to-cart"
                                     class="btn btn-success add-to-cart-btn"
                                   >
                                     +
@@ -784,7 +817,10 @@
                               </small>
                             </p>
                             <p>
-                              <button class="btn btn-success add-to-cart-btn">
+                              <button
+                                id="add-to-cart"
+                                class="btn btn-success add-to-cart-btn"
+                              >
                                 +
                               </button>
                             </p>
@@ -812,7 +848,10 @@
                               </small>
                             </p>
                             <p>
-                              <button class="btn btn-success add-to-cart-btn">
+                              <button
+                                id="add-to-cart"
+                                class="btn btn-success add-to-cart-btn"
+                              >
                                 +
                               </button>
                             </p>
@@ -850,7 +889,10 @@
                               </small>
                             </p>
                             <p>
-                              <button class="btn btn-success add-to-cart-btn">
+                              <button
+                                id="add-to-cart"
+                                class="btn btn-success add-to-cart-btn"
+                              >
                                 +
                               </button>
                             </p>
@@ -888,6 +930,7 @@
                                 </p>
                                 <p>
                                   <button
+                                    id="add-to-cart"
                                     class="btn btn-success add-to-cart-btn"
                                   >
                                     +
@@ -923,6 +966,7 @@
                                 </p>
                                 <p>
                                   <button
+                                    id="add-to-cart"
                                     class="btn btn-success add-to-cart-btn"
                                   >
                                     +
@@ -958,6 +1002,7 @@
                                 </p>
                                 <p>
                                   <button
+                                    id="add-to-cart"
                                     class="btn btn-success add-to-cart-btn"
                                   >
                                     +
@@ -996,6 +1041,7 @@
                                 </p>
                                 <p>
                                   <button
+                                    id="add-to-cart"
                                     class="btn btn-success add-to-cart-btn"
                                   >
                                     +
@@ -1029,6 +1075,7 @@
                                 </p>
                                 <p>
                                   <button
+                                    id="add-to-cart"
                                     class="btn btn-success add-to-cart-btn"
                                   >
                                     +
@@ -1066,6 +1113,7 @@
                                 </p>
                                 <p>
                                   <button
+                                    id="add-to-cart"
                                     class="btn btn-success add-to-cart-btn"
                                   >
                                     +
@@ -1103,6 +1151,7 @@
                                 </p>
                                 <p>
                                   <button
+                                    id="add-to-cart"
                                     class="btn btn-success add-to-cart-btn"
                                   >
                                     +
@@ -1143,6 +1192,7 @@
                                 </p>
                                 <p>
                                   <button
+                                    id="add-to-cart"
                                     class="btn btn-success add-to-cart-btn"
                                   >
                                     +
@@ -1178,6 +1228,7 @@
                                 </p>
                                 <p>
                                   <button
+                                    id="add-to-cart"
                                     class="btn btn-success add-to-cart-btn"
                                   >
                                     +
@@ -1211,6 +1262,7 @@
                                 </p>
                                 <p>
                                   <button
+                                    id="add-to-cart"
                                     class="btn btn-success add-to-cart-btn"
                                   >
                                     +
@@ -1229,14 +1281,25 @@
             <div class="col-lg-4">
               <div class="cart text-white">
                 <div class="cart-header">
-                  <h4>Order Details</h4>
+                  <h5>Order Details</h5>
                 </div>
-                <table border="1px" style="width: 100%; color: #000">
-                  <tr>
-                    <td>Name</td>
-                    <td>$0.00</td>
-                    <td>X</td>
-                  </tr>
+                <table
+                  id="order-table"
+                  style="
+                    width: 100%;
+                    color: #000;
+                    font-size: 12px;
+                    margin: 5px 0.3rem;
+                  "
+                >
+                  <tbody></tbody>
+                  <tfoot>
+                    <tr>
+                      <td>Total</td>
+                      <td></td>
+                      <td><span id="total"></span></td>
+                    </tr>
+                  </tfoot>
                 </table>
               </div>
             </div>
@@ -1244,95 +1307,11 @@
         </div>
       </div>
       <!-- End of menu section -->
-      <!-- .templateux-section -->
 
-      <!-- Testimonial Section -->
-
-      <!-- <div class="templateux-section bg-light">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-md-8 testimonial-wrap" data-aos="fade">
-              <div class="quote">&ldquo;</div>
-              <div class="owl-carousel wide-slider-testimonial">
-                <div class="item">
-                  <blockquote class="block-testomonial">
-                    <p>
-                      &ldquo;Jamaican-run restaurant, with a home grown chef...
-                      straight from Kingston. So you know the food is authentic,
-                      Jamaican “yard-style” cuisine. Marinated in our imported
-                      Jamaican spices and cooked to perfection— juicy jerk
-                      chicken, Jamaican oxtails, and delicious plantains are
-                      bursting with bold Caribbean flavor! But we’re not here to
-                      convince you... we’ll let our food speak for
-                      itself.&rdquo;
-                    </p>
-                    <div class="author">
-                      <img
-                        src="images/person_1.jpg"
-                        alt="Free template by TemplateUX"
-                      />
-                      <h3>John Doe</h3>
-                      <p class="position">CEO, Founder</p>
-                    </div>
-                  </blockquote>
-                </div>
-
-                <div class="item">
-                  <blockquote class="block-testomonial">
-                    <p>
-                      &ldquo;Jamaican-run restaurant, with a home grown chef...
-                      straight from Kingston. So you know the food is authentic,
-                      Jamaican “yard-style” cuisine. Marinated in our imported
-                      Jamaican spices and cooked to perfection— juicy jerk
-                      chicken, Jamaican oxtails, and delicious plantains are
-                      bursting with bold Caribbean flavor! But we’re not here to
-                      convince you... we’ll let our food speak for
-                      itself.&rdquo;
-                    </p>
-                    <div class="author">
-                      <img
-                        src="images/person_2.jpg"
-                        alt="Free template by TemplateUX"
-                      />
-                      <h3>James Woodland</h3>
-                      <p class="position">Designer at Facebook</p>
-                    </div>
-                  </blockquote>
-                </div>
-
-                <div class="item">
-                  <blockquote class="block-testomonial">
-                    <p>
-                      &ldquo;Jamaican-run restaurant, with a home grown chef...
-                      straight from Kingston. So you know the food is authentic,
-                      Jamaican “yard-style” cuisine. Marinated in our imported
-                      Jamaican spices and cooked to perfection— juicy jerk
-                      chicken, Jamaican oxtails, and delicious plantains are
-                      bursting with bold Caribbean flavor! But we’re not here to
-                      convince you... we’ll let our food speak for
-                      itself.&rdquo;
-                    </p>
-                    <div class="author">
-                      <img
-                        src="images/person_3.jpg"
-                        alt="Free template by TemplateUX"
-                      />
-                      <h3>Rob Smith</h3>
-                      <p class="position">Product Designer at Twitter</p>
-                    </div>
-                  </blockquote>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-      </div>
-    -->
-      <!-- End of Testimonial Section -->
       <!-- .templateux-section -->
 
       <footer class="templateux-footer">
+        <div id="toggle-cart">hide/show cart</div>
         <div class="container">
           <div class="row mb-5">
             <div class="col-md-4 pr-md-5 mb-4">
@@ -1530,6 +1509,125 @@
         }
       }
       new StickyNavigation();
+
+      // Cart functionality
+
+      loadEventListeners();
+      function loadEventListeners() {
+        // add an eventListener to the add-to-cart button
+        document.addEventListener("click", addToCart);
+        // add an eventListener to the input element
+        document.addEventListener("change", handleQuantityInput);
+        // add an eventListener to the remove button
+        document.addEventListener("click", removeCartItem);
+      }
+
+      function addToCart(e) {
+        if (e.target.id !== "add-to-cart") return;
+
+        // traversing the DOM to get the button parent element (the card which contains the food infos)
+        const items = e.target.parentElement.parentElement;
+
+        getItemInfo(items);
+      }
+
+      function getItemInfo(items) {
+        let data = {
+          itemName: items.parentElement.parentElement.parentElement.querySelector(
+            ".card-title"
+          ).textContent,
+          itemPrice: items.parentElement.parentElement.querySelector(
+            ".menu-price"
+          ).textContent,
+        };
+        addItemToCart(data);
+      }
+
+      function addItemToCart(itemsInfo) {
+        const orderTable = document.querySelector("#order-table tbody");
+        const html = `
+      <tr id="" class="cart-row">
+                            <td class="">
+                              <input type="number" value="1" max="10" min="1" id="quantity" class="item-quantity"/>
+                            </td>
+                            <td>
+                              <div class="item-title"> ${itemsInfo.itemName}</div>
+                              <div class="item-price"> <small> ${itemsInfo.itemPrice} </small></div>
+                            </td>
+                            <td class="item-delete">
+                              <input
+                                type="button"
+                                id=""
+                                class="delete-from-cart btn btn-danger"
+                                title="remove from cart"
+                                value="x"
+                              />
+                            </td>
+                          </tr>
+                `;
+
+        orderTable.innerHTML += html;
+        updateCartTotal();
+      }
+      function updateCartTotal() {
+        const cartRow = document.querySelectorAll(".cart-row");
+        let total = 0;
+        cartRow.forEach(function (row) {
+          const priceElement = row.querySelectorAll(".item-price small")[0];
+          const quantityElement = row.querySelectorAll(".item-quantity")[0];
+          let quantity = parseFloat(quantityElement.value.trim(), 10);
+          let price = parseFloat(priceElement.textContent.replace("$", ""));
+          const displayTotal = document.querySelector("#total");
+          total += quantity * price;
+          displayTotal.innerText = "$" + Math.round((total * 100) / 100);
+        });
+      }
+      function totalToZero() {
+        const cartRow = document.querySelectorAll(".cart-row");
+        console.log(cartRow.length);
+        const displayTotal = document.querySelector("#total");
+        if (cartRow.length < 1) {
+          displayTotal.innerText = "";
+        }
+      }
+
+      function handleQuantityInput(e) {
+        if (e.target.id !== "quantity") return;
+        updateCartTotal();
+      }
+      function removeCartItem(e) {
+        if (!e.target.classList.contains("delete-from-cart")) return;
+        e.target.parentElement.parentElement.remove();
+        updateCartTotal();
+        totalToZero();
+      }
+      $(document).ready(function () {
+        // $(window).resize(function () {
+        if ($(window).width() < 960) {
+          document.addEventListener(
+            "click",
+            function (e) {
+              if (e.target.id === "toggle-cart") {
+                // $("#toggle-cart").css();
+                $(".cart").fadeToggle(500);
+                $(".cart").css({
+                  width: " 68%",
+                  left: "16%",
+                  height: "400px",
+                  top: "43%",
+                  "box-shadow": "black 0px -1px 164px -91px ",
+                });
+              } else {
+                return false;
+              }
+            },
+            false
+          );
+        } else {
+          $(".cart").css("display", "block");
+        }
+        // });
+      });
     </script>
   </body>
 </html>
