@@ -1304,9 +1304,24 @@
                     </tr>
                     <tr>
                       <td></td>
-                      <td>
-                        <button class="btn btn-success mt-1 checkout-btn">
+                      <td
+                        style="
+                          display: flex;
+                          justify-content: space-evenly;
+                          align-items: center;
+                        "
+                      >
+                        <button
+                          class="btn btn-success mt-1 checkout-btn"
+                          style="font-size: 8px"
+                        >
                           continue
+                        </button>
+                        <button
+                          class="btn btn-danger empty-cart mt-1"
+                          style="font-size: 8px; display: block"
+                        >
+                          empty cart
                         </button>
                       </td>
                       <td></td>
@@ -1543,6 +1558,9 @@
         document.addEventListener("change", handleQuantityInput);
         // add an eventListener to the remove button
         document.addEventListener("click", removeCartItem);
+        // add an eventListener to the remove data from localstorage
+
+        document.addEventListener("click", clearLocalStorage);
       }
 
       function addToCart(e) {
@@ -1575,7 +1593,9 @@
           timer: 1200,
         });
       }
-
+      let itemsArray = localStorage.getItem("carribean")
+        ? JSON.parse(localStorage.getItem("carribean"))
+        : [];
       function getItemInfo(items) {
         let data = {
           itemName: items.parentElement.parentElement.parentElement.querySelector(
@@ -1585,19 +1605,31 @@
             ".menu-price"
           ).textContent,
         };
-        addItemToCart(data);
+        // addItemToCart(data);
+        // addItemToCart(itemsArray);
+        saveItemsToLocalstorage(data);
+        setTimeout(() => {
+          window.location.reload();
+        }, 700);
       }
+      addItemToCart(itemsArray);
 
+      function saveItemsToLocalstorage(data) {
+        itemsArray.push(data);
+        localStorage.setItem("carribean", JSON.stringify(itemsArray));
+      }
       function addItemToCart(itemsInfo) {
         const orderTable = document.querySelector("#order-table tbody");
-        const html = `
+        let html = "";
+        itemsInfo.forEach(function (data) {
+          html += `
       <tr id="" class="cart-row">
                             <td class="">
                               <input type="number" value="1" max="10" min="1" id="quantity" class="item-quantity"/>
                             </td>
                             <td>
-                              <div class="item-title"> ${itemsInfo.itemName}</div>
-                              <div class="item-price"> <small> ${itemsInfo.itemPrice} </small></div>
+                              <div class="item-title"> ${data.itemName}</div>
+                              <div class="item-price"> <small> ${data.itemPrice} </small></div>
                             </td>
                             <td class="item-delete">
                               <input
@@ -1610,6 +1642,7 @@
                             </td>
                           </tr>
                 `;
+        });
 
         orderTable.innerHTML += html;
         updateCartTotal();
@@ -1624,20 +1657,18 @@
           let price = parseFloat(priceElement.textContent.replace("$", ""));
           const displayTotal = document.querySelector("#total");
           total += quantity * price;
-          displayTotal.innerText = "$" + Math.round((total * 100) / 100);
+          displayTotal.innerText = "$" + total.toFixed(2);
           const showCartBtn = document.querySelector("#dol");
-          showCartBtn.innerText =
-            "(" + "$" + Math.round((total * 100) / 100) + ")";
+          showCartBtn.innerText = "(" + "$" + total.toFixed(2) + ")";
         });
-                  document.querySelector(".checkout-btn").style.display = "block";
-
+        document.querySelector(".checkout-btn").style.display = "block";
       }
       function totalToZero() {
         const cartRow = document.querySelectorAll(".cart-row");
         const displayTotal = document.querySelector("#total");
         if (cartRow.length < 1) {
           displayTotal.innerText = "$0.00";
-        } 
+        }
       }
 
       function handleQuantityInput(e) {
@@ -1681,6 +1712,21 @@
           });
         });
       });
+
+      function clearLocalStorage(e) {
+        if (!e.target.matches(".empty-cart")) return false;
+        localStorage.clear();
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Cart cleared successfully",
+          showConfirmButton: false,
+          timer: 1200,
+        });
+        setTimeout(() => {
+          window.location.reload();
+        }, 700);
+      }
     </script>
   </body>
 </html>
