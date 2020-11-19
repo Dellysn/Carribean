@@ -25,9 +25,7 @@
         position: sticky !important;
         top: 166px;
       }
-      .checkout-btn {
-        display: none;
-      }
+
       .cart-header {
         text-align: center;
         border-bottom: 2px #000 solid;
@@ -39,7 +37,7 @@
       @media (max-width: 990px) {
         .cart {
           position: fixed !important;
-          bottom: -10%;
+          /* bottom: -10%; */
           left: 0;
           width: 100%;
           background: #fff;
@@ -1612,6 +1610,7 @@
           window.location.reload();
         }, 700);
       }
+
       addItemToCart(itemsArray);
 
       function saveItemsToLocalstorage(data) {
@@ -1661,13 +1660,21 @@
           const showCartBtn = document.querySelector("#dol");
           showCartBtn.innerText = "(" + "$" + total.toFixed(2) + ")";
         });
-        document.querySelector(".checkout-btn").style.display = "block";
       }
       function totalToZero() {
         const cartRow = document.querySelectorAll(".cart-row");
         const displayTotal = document.querySelector("#total");
         if (cartRow.length < 1) {
           displayTotal.innerText = "$0.00";
+        }
+        if (cartRow.length > 5) {
+          return Swal.fire({
+            position: "center",
+            icon: "warning",
+            title: "Limit exceeded, Items must not be more than 5.",
+            showConfirmButton: false,
+            timer: 1200,
+          });
         }
       }
 
@@ -1691,8 +1698,8 @@
               $(".cart").css({
                 width: " 78%",
                 left: "10%",
-                height: "400px",
-                top: "43%",
+                height: "fit-content",
+                top: "40%",
                 "box-shadow": "black 0px -1px 164px -91px ",
               });
             } else {
