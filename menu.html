@@ -19,7 +19,7 @@
       @import url("https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap");
       .cart {
         font-family: "Noto Sans";
-        border: #000 solid 1px;
+        border: #fba83b solid 1px;
         height: auto;
         margin-top: 30px;
         position: sticky !important;
@@ -28,7 +28,7 @@
 
       .cart-header {
         text-align: center;
-        border-bottom: 2px #000 solid;
+        border-bottom: 1px #fba83b solid;
         color: #fff !important;
       }
       #toggle-cart {
@@ -43,18 +43,21 @@
           background: #fff;
           z-index: 99;
           display: none;
+          overflow-x: hidden;
+          overflow-y: scroll;
         }
         #toggle-cart {
           position: fixed;
-          right: 30%;
+          right: 0%;
           bottom: 0;
           padding: 0.4rem;
-          background: #fd7e14;
+          background: #fba83b;
           font-size: 12px;
           color: #fff;
           display: block;
           z-index: 99;
           cursor: pointer;
+          width:100%;
         }
         #toggle-cart:hover {
           background-color: #000;
@@ -170,6 +173,8 @@
         height: auto;
         overflow: hidden;
         /* background: orangered; */
+        border: #fba83b solid 1px;
+        border-radius: 0;
       }
 
       .product-lists .card .card-body {
@@ -179,12 +184,16 @@
         font-size: 14px;
         margin: 0;
       }
+      .product-lists .card .card-footer_ {
+        /* position: relative; */
+      }
       .product-lists .card .card-footer_ .card-text {
         margin: 0;
         background-color: transparent;
       }
       .product-lists .card .card-footer_ .btn {
         float: right;
+        clear: both;
       }
       .product-lists .card .card-text {
         font-size: 10px;
@@ -195,7 +204,7 @@
         border-radius: 0;
       }
       .menu-price {
-        font-size: 20px;
+        /* font-size: 20px; */
       }
     </style>
   </head>
@@ -281,7 +290,7 @@
       <!-- .cover-parallax-1 -->
 
       <!-- Menu section -->
-      <div class="templateux-section">
+      <div class="templateux-section" id="next-section">
         <div class="container">
           <div class="row">
             <div class="col-md-12 text-center my-5 py-5" data-aos="fade">
@@ -309,7 +318,7 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title" id="exampleModalCenteredLabel">
-                    Add options
+                    Options
                   </h5>
                   <button
                     type="button"
@@ -324,7 +333,7 @@
                   <form>
                     <div class="row">
                       <div class="col-6">
-                        <label for="">Ketchup?</label>
+                        <label for="">Ketchup ?</label>
                         <div class="custom-control custom-radio">
                           <input
                             type="radio"
@@ -355,7 +364,7 @@
                         </div>
                       </div>
                       <div class="col-6">
-                        <label for="">Onions</label>
+                        <label for="">Onions ?</label>
                         <div class="custom-control custom-radio">
                           <input
                             type="radio"
@@ -387,6 +396,22 @@
                           <option value="quarter" selected>Quarter</option>
                           <option value="half">Half</option>
                         </select>
+                      </div>
+                      <div class="col-6 mt-1">
+                      
+                        <span class="applicable-block">
+                          <label> Choose Quantity </label>
+                          <select class="custom-select catQuantity">
+                            <option value="half" selected>
+                              Half Tray (15-20 people)
+                            </option>
+                            <option value="full">
+                              Full Tray (30-40 people)
+                            </option>
+                          </select>
+                          <br>  <input type="checkbox" id="applicable" />
+                        <label for="applicable">Not applicable?</label><br></span
+                        >
                       </div>
                     </div>
                   </form>
@@ -420,10 +445,10 @@
               <section class="nav-items">
                 <div class="items-container">
                   <a class="navs" href="#sec-html"> Lunch & Dinner Entrées</a>
-                  <a class="navs" href="#sec-css"> PASTAS Entrée </a>
                   <a class="navs" href="#sec-js"> Island Seafood</a>
                   <a class="navs" href="#sec-php"> Sandwiches & Wraps</a>
                   <a class="navs" href="#sec-sql"> Veggie & Salad Entrées </a>
+                  <a class="navs" href="#sec-css"> Catering</a>
                   <span class="bottom-slider"></span>
                 </div>
               </section>
@@ -461,7 +486,7 @@
                                 <p>
                                   <button
                                     type="button"
-                                    class="btn btn-success"
+                                    class="btn btn-secondary"
                                     data-toggle="modal"
                                     data-target="#exampleModalCentered"
                                     id="cart-modal"
@@ -502,7 +527,7 @@
                                 <p>
                                   <button
                                     type="button"
-                                    class="btn btn-success"
+                                    class="btn btn-secondary"
                                     data-toggle="modal"
                                     data-target="#exampleModalCentered"
                                     id="cart-modal"
@@ -547,7 +572,7 @@
                                     data-toggle="modal"
                                     data-target="#exampleModalCentered"
                                     id="cart-modal"
-                                    class="btn btn-success add-to-cart-btn"
+                                    class="btn btn-secondary add-to-cart-btn"
                                   >
                                     +
                                   </button>
@@ -586,7 +611,7 @@
                                     data-toggle="modal"
                                     data-target="#exampleModalCentered"
                                     id="cart-modal"
-                                    class="btn btn-success add-to-cart-btn"
+                                    class="btn btn-secondary add-to-cart-btn"
                                   >
                                     +
                                   </button>
@@ -626,7 +651,7 @@
                                     data-toggle="modal"
                                     data-target="#exampleModalCentered"
                                     id="cart-modal"
-                                    class="btn btn-success add-to-cart-btn"
+                                    class="btn btn-secondary add-to-cart-btn"
                                   >
                                     +
                                   </button>
@@ -667,7 +692,7 @@
                                     data-toggle="modal"
                                     data-target="#exampleModalCentered"
                                     id="cart-modal"
-                                    class="btn btn-success add-to-cart-btn"
+                                    class="btn btn-secondary add-to-cart-btn"
                                   >
                                     +
                                   </button>
@@ -708,7 +733,7 @@
                                     data-toggle="modal"
                                     data-target="#exampleModalCentered"
                                     id="cart-modal"
-                                    class="btn btn-success add-to-cart-btn"
+                                    class="btn btn-secondary add-to-cart-btn"
                                   >
                                     +
                                   </button>
@@ -748,7 +773,7 @@
                                     data-toggle="modal"
                                     data-target="#exampleModalCentered"
                                     id="cart-modal"
-                                    class="btn btn-success add-to-cart-btn"
+                                    class="btn btn-secondary add-to-cart-btn"
                                   >
                                     +
                                   </button>
@@ -787,7 +812,7 @@
                                     data-toggle="modal"
                                     data-target="#exampleModalCentered"
                                     id="cart-modal"
-                                    class="btn btn-success add-to-cart-btn"
+                                    class="btn btn-secondary add-to-cart-btn"
                                   >
                                     +
                                   </button>
@@ -802,30 +827,29 @@
                 </section>
                 <section class="bottom-slide" id="sec-css">
                   <h3 class="product-category display-5 py-5 my-5">
-                    Pastas Entrées
+                    Catering Menu
                   </h3>
                   <div class="row product-lists">
                     <div class="col-lg-6 col-sm-6">
                       <div class="card mb-3">
                         <div class="row no-gutters">
-                          <div class="col-md-4">
-                            <img
-                              src="images/placeholder-image.png"
-                              class="card-img"
-                              alt="..."
-                            />
-                          </div>
-                          <div class="col-md-8">
+                          <div class="col-md-12">
                             <div class="card-body">
-                              <h5 class="card-title">Rasta Chicken Pasta</h5>
+                              <h5 class="card-title">Jerk Chicken</h5>
                               <p class="card-text">
-                                Tri-color pasta with savory chunks of chicken in
-                                Sweet Fire Alfredo.
+                                Steel drum grilled chicken barbecued to a crisp,
+                                finished off in the oven in Hilltop’s very own
+                                spicy jerk sauce.
+                              </p>
+                              <p class="card-text">
+                                Special Instructions <br />
+                                Quantity
                               </p>
                               <div class="card-footer_">
                                 <p class="card-text">
                                   <small class="text-primary menu-price">
-                                    N/A
+                                    Half Tray (15-20 people) [$90.00] <br />
+                                    Full Tray (30-40 people) [$170.00]
                                   </small>
                                 </p>
                                 <p>
@@ -833,7 +857,7 @@
                                     data-toggle="modal"
                                     data-target="#exampleModalCentered"
                                     id="cart-modal"
-                                    class="btn btn-success add-to-cart-btn"
+                                    class="btn btn-secondary add-to-cart-btn"
                                   >
                                     +
                                   </button>
@@ -847,24 +871,23 @@
                     <div class="col-lg-6 col-sm-6">
                       <div class="card mb-3">
                         <div class="row no-gutters">
-                          <div class="col-md-4">
-                            <img
-                              src="images/placeholder-image.png"
-                              class="card-img"
-                              alt="..."
-                            />
-                          </div>
-                          <div class="col-md-8">
+                          <div class="col-md-12">
                             <div class="card-body">
-                              <h5 class="card-title">Shrimp Pasta</h5>
+                              <h5 class="card-title">Curry Chicken</h5>
                               <p class="card-text">
-                                Succulent wild caught shrimp in Sweet Fire
-                                Alfredo with Penne pasta.
+                                Well marinated chicken seasoned with fresh herbs
+                                and curry powder.
+                              </p>
+                              <p class="card-text">
+                                Special Instructions <br />
+                                Quantity
                               </p>
                               <div class="card-footer_">
                                 <p class="card-text">
                                   <small class="text-primary menu-price">
-                                    N/A
+                                    Half Tray (15-20 people) [$90.00] <br />
+
+                                    Full Tray (30-40 people) [$170.00]
                                   </small>
                                 </p>
                                 <p>
@@ -872,7 +895,7 @@
                                     data-toggle="modal"
                                     data-target="#exampleModalCentered"
                                     id="cart-modal"
-                                    class="btn btn-success add-to-cart-btn"
+                                    class="btn btn-secondary add-to-cart-btn"
                                   >
                                     +
                                   </button>
@@ -886,24 +909,22 @@
                     <div class="col-lg-6 col-sm-6">
                       <div class="card mb-3">
                         <div class="row no-gutters">
-                          <div class="col-md-4">
-                            <img
-                              src="images/placeholder-image.png"
-                              class="card-img"
-                              alt="..."
-                            />
-                          </div>
-                          <div class="col-md-8">
+                          <div class="col-md-12">
                             <div class="card-body">
-                              <h5 class="card-title">Oxtail Pasta</h5>
+                              <h5 class="card-title">Brown Stew Chicken</h5>
                               <p class="card-text">
-                                Chunks of delicious well seasoned oxtail in
-                                Sweet Fire Alfredo with Penne pasta.
+                                Well marinated, pan fried, chicken finished off
+                                in a flavorful thick brown gravy.
+                              </p>
+                              <p class="card-text">
+                                Special Instructions <br />
+                                Quantity.
                               </p>
                               <div class="card-footer_">
                                 <p class="card-text">
                                   <small class="text-primary menu-price">
-                                    N/A
+                                    Half Tray (15-20 people) [$90.00] <br />
+                                    Full Tray (30-40 people) [$170.00]
                                   </small>
                                 </p>
                                 <p>
@@ -911,13 +932,129 @@
                                     data-toggle="modal"
                                     data-target="#exampleModalCentered"
                                     id="cart-modal"
-                                    class="btn btn-success add-to-cart-btn"
+                                    class="btn btn-secondary add-to-cart-btn"
                                   >
                                     +
                                   </button>
                                 </p>
                               </div>
                             </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6">
+                      <div class="card mb-3">
+                        <div class="row no-gutters">
+                          <div class="col-md-12">
+                            <div class="card-body">
+                              <h5 class="card-title">Curry Goat</h5>
+                              <p class="card-text">
+                                Thoroughly seasoned goat meat, topped with fresh
+                                herbs and curry powder.
+                              </p>
+                              <p class="card-text">
+                                Special Instructions <br />
+                                Quantity.
+                              </p>
+                              <div class="card-footer_">
+                                <p class="card-text">
+                                  <small class="text-primary menu-price">
+                                    Half Tray (15-20 people) [$175.00] <br />
+                                    Full Tray (30-40 people) [$340.00]
+                                  </small>
+                                </p>
+                                <p>
+                                  <button
+                                    data-toggle="modal"
+                                    data-target="#exampleModalCentered"
+                                    id="cart-modal"
+                                    class="btn btn-secondary add-to-cart-btn"
+                                  >
+                                    +
+                                  </button>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6">
+                      <div class="card mb-3">
+                        <div class="row no-gutters">
+                          <div class="col-md-12">
+                            <div class="card-body">
+                              <h5 class="card-title">Oxtail</h5>
+                              <p class="card-text">
+                                Varied sized of oxtail well marinated and
+                                seasoned with many spices and herbs in our rich
+                                brown gravy.
+                              </p>
+                              <p class="card-text">
+                                Special Instructions <br />
+                                Quantity.
+                              </p>
+                              <div class="card-footer_">
+                                <p class="card-text">
+                                  <small class="text-primary menu-price">
+                                    Half Tray (15-20 people) [$180.00] <br />
+                                    Full Tray (30-40 people) [$350.00]
+                                  </small>
+                                </p>
+                                <p>
+                                  <button
+                                    data-toggle="modal"
+                                    data-target="#exampleModalCentered"
+                                    id="cart-modal"
+                                    class="btn btn-secondary add-to-cart-btn"
+                                  >
+                                    +
+                                  </button>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6">
+                      <div class="card mb-3">
+                        <div class="row no-gutters">
+                          <div class="col-md-12">
+                            <div class="card-body">
+                              <h5 class="card-title">Tilapia Fillet</h5>
+                              <p class="card-text">
+                                Pan tilapia fish fried to a crisp prepared in a
+                                variety of flavors such as brown stew, spicy
+                                Escovitch, fried or steamed (for those don’t
+                                want it fried).
+                              </p>
+                              <p class="card-text">
+                                Special Instructions <br />
+                                Quantity.
+                              </p>
+                            
+                            <div class="card-footer_">
+                              <p class="card-text">
+                              <p class="card-text">
+                                  <small class="text-primary menu-price">
+                                    Half Tray (15-20 people) [$180.00] <br />
+                                    Full Tray (30-40 people) [$350.00]
+                                  </small>
+                                </p>
+                              </p>
+                              <p>
+                                <button
+                                  data-toggle="modal"
+                                  data-target="#exampleModalCentered"
+                                  id="cart-modal"
+                                  class="btn btn-secondary add-to-cart-btn"
+                                >
+                                  +
+                                </button>
+                              </p>
+                            </div></div>
                           </div>
                         </div>
                       </div>
@@ -963,7 +1100,7 @@
                                 data-toggle="modal"
                                 data-target="#exampleModalCentered"
                                 id="cart-modal"
-                                class="btn btn-success add-to-cart-btn"
+                                class="btn btn-secondary add-to-cart-btn"
                               >
                                 +
                               </button>
@@ -996,7 +1133,7 @@
                                 data-toggle="modal"
                                 data-target="#exampleModalCentered"
                                 id="cart-modal"
-                                class="btn btn-success add-to-cart-btn"
+                                class="btn btn-secondary add-to-cart-btn"
                               >
                                 +
                               </button>
@@ -1039,7 +1176,7 @@
                                 data-toggle="modal"
                                 data-target="#exampleModalCentered"
                                 id="cart-modal"
-                                class="btn btn-success add-to-cart-btn"
+                                class="btn btn-secondary add-to-cart-btn"
                               >
                                 +
                               </button>
@@ -1081,7 +1218,7 @@
                                     data-toggle="modal"
                                     data-target="#exampleModalCentered"
                                     id="cart-modal"
-                                    class="btn btn-success add-to-cart-btn"
+                                    class="btn btn-secondary add-to-cart-btn"
                                   >
                                     +
                                   </button>
@@ -1119,7 +1256,7 @@
                                     data-toggle="modal"
                                     data-target="#exampleModalCentered"
                                     id="cart-modal"
-                                    class="btn btn-success add-to-cart-btn"
+                                    class="btn btn-secondary add-to-cart-btn"
                                   >
                                     +
                                   </button>
@@ -1157,7 +1294,7 @@
                                     data-toggle="modal"
                                     data-target="#exampleModalCentered"
                                     id="cart-modal"
-                                    class="btn btn-success add-to-cart-btn"
+                                    class="btn btn-secondary add-to-cart-btn"
                                   >
                                     +
                                   </button>
@@ -1198,7 +1335,7 @@
                                     data-toggle="modal"
                                     data-target="#exampleModalCentered"
                                     id="cart-modal"
-                                    class="btn btn-success add-to-cart-btn"
+                                    class="btn btn-secondary add-to-cart-btn"
                                   >
                                     +
                                   </button>
@@ -1234,7 +1371,7 @@
                                     data-toggle="modal"
                                     data-target="#exampleModalCentered"
                                     id="cart-modal"
-                                    class="btn btn-success add-to-cart-btn"
+                                    class="btn btn-secondary add-to-cart-btn"
                                   >
                                     +
                                   </button>
@@ -1274,7 +1411,7 @@
                                     data-toggle="modal"
                                     data-target="#exampleModalCentered"
                                     id="cart-modal"
-                                    class="btn btn-success add-to-cart-btn"
+                                    class="btn btn-secondary add-to-cart-btn"
                                   >
                                     +
                                   </button>
@@ -1314,7 +1451,7 @@
                                     data-toggle="modal"
                                     data-target="#exampleModalCentered"
                                     id="cart-modal"
-                                    class="btn btn-success add-to-cart-btn"
+                                    class="btn btn-secondary add-to-cart-btn"
                                   >
                                     +
                                   </button>
@@ -1357,7 +1494,7 @@
                                     data-toggle="modal"
                                     data-target="#exampleModalCentered"
                                     id="cart-modal"
-                                    class="btn btn-success add-to-cart-btn"
+                                    class="btn btn-secondary add-to-cart-btn"
                                   >
                                     +
                                   </button>
@@ -1395,7 +1532,7 @@
                                     data-toggle="modal"
                                     data-target="#exampleModalCentered"
                                     id="cart-modal"
-                                    class="btn btn-success add-to-cart-btn"
+                                    class="btn btn-secondary add-to-cart-btn"
                                   >
                                     +
                                   </button>
@@ -1431,7 +1568,7 @@
                                     data-toggle="modal"
                                     data-target="#exampleModalCentered"
                                     id="cart-modal"
-                                    class="btn btn-success add-to-cart-btn"
+                                    class="btn btn-secondary add-to-cart-btn"
                                   >
                                     +
                                   </button>
@@ -1477,7 +1614,7 @@
                         "
                       >
                         <button
-                          class="btn btn-success mt-1 checkout-btn"
+                          class="btn btn-secondary mt-1 checkout-btn"
                           style="font-size: 8px"
                         >
                           continue
@@ -1618,7 +1755,7 @@
 
     <script>
       $(function () {
-        $(".product-lists .card").matchHeight();
+        // $(".product-lists .card").matchHeight();
       });
     </script>
     <script>
@@ -1720,11 +1857,26 @@
         document.addEventListener("click", removeCartItem);
         // add an eventListener to the remove data from localstorage
         document.addEventListener("click", clearLocalStorage);
+
+        // add an evenlistener to applicable input
+        document.addEventListener("change", toggleApplicable);
       }
       let itemElement;
       function openModal(e) {
         if (e.target.id !== "cart-modal") return;
-        itemElement = e.target.parentElement.parentElement;
+
+        if (
+          e.target.parentElement.parentElement.querySelector(".menu-price")
+            .innerText.length > 8
+        ) {
+          Swal.fire({
+            icon: "error",
+            text: "This option can only be selected manually",
+          });
+          return false;
+        } else {
+          itemElement = e.target.parentElement.parentElement;
+        }
       }
       function proceedToCart(e) {
         if (e.target.id !== "proceed-to-cart") return;
@@ -1755,23 +1907,6 @@
       function addToCart(element) {
         // traversing the DOM to get the button parent element (the card which contains the food infos)
         getItemInfo(element);
-        // const Toast = Swal.mixin({
-        //   toast: true,
-        //   position: "top-end",
-        //   showConfirmButton: false,
-        //   timer: 3000,
-        //   timerProgressBar: true,
-        //   didOpen: (toast) => {
-        //     toast.addEventListener("mouseenter", Swal.stopTimer);
-        //     toast.addEventListener("mouseleave", Swal.resumeTimer);
-        //   },
-        // });
-
-        // Toast.fire({
-        //   icon: "success",
-        //   title: "Item added to cart successfully",
-        // });
-
         Swal.fire({
           position: "center",
           icon: "success",
@@ -1902,9 +2037,7 @@
         $(".checkout-btn").click(function () {
           Swal.fire({
             icon: "error",
-            title: "Oops...",
-            text: "Something went wrong!",
-            footer: "This feature is not available yet",
+            text: "This feature is not available yet",
           });
         });
       });
@@ -1922,6 +2055,14 @@
         setTimeout(() => {
           window.location.reload();
         }, 700);
+      }
+
+      function toggleApplicable(e) {
+        if (e.target.id !== "applicable") return false;
+        const catQuantity = document.querySelector(".catQuantity");
+        e.target.checked
+          ? catQuantity.setAttribute("disabled", "disabled")
+          : catQuantity.removeAttribute("disabled");
       }
     </script>
   </body>
